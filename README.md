@@ -1,6 +1,19 @@
 # Churn
 
+[![npm version](https://badge.fury.io/js/churn-ideate.svg)](https://www.npmjs.com/package/churn-ideate)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm downloads](https://img.shields.io/npm/dt/churn-ideate.svg)](https://www.npmjs.com/package/churn-ideate)
+
 High-volume ideation tool for Claude Code. Generates ideas with zero quality filter to break analysis paralysis.
+
+## Why Churn?
+
+- **12 specialized modes** - ideas, names, features, questions, variations, hypotheses, risks, critiques, alternatives, proscons, metaphors, objections
+- **Zero quality filter** - divergent thinking separated from convergent evaluation
+- **Multiple output formats** - JSON, CSV, checklist for direct workflow integration
+- **63% token savings** - proven more efficient than iterative refinement ([benchmarks](benchmarks/))
+- **Academic foundation** - grounded in creativity research (Osborn, IDEO, Simonton, Csikszentmihalyi)
+- **Production-ready** - configuration support, file export, task integration
 
 ## Problem
 
