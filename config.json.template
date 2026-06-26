@@ -1,0 +1,6 @@
+{
+  "defaultQuantity": 20,
+  "defaultMode": "ideas",
+  "terseFormat": true,
+  "includeWildIdeas": true
+}

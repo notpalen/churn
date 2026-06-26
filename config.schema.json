@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Churn Configuration",
+  "description": "User preferences for the Churn skill",
+  "type": "object",
+  "properties": {
+    "defaultQuantity": {
+      "type": "integer",
+      "description": "Default number of items to generate when quantity is not specified",
+      "default": 20,
+      "minimum": 10,
+      "maximum": 50
+    },
+    "defaultMode": {
+      "type": "string",
+      "description": "Default output mode when mode is not specified",
+      "default": "ideas",
+      "enum": [
+        "ideas",
+        "names",
+        "features",
+        "questions",
+        "variations",
+        "hypotheses",
+        "risks",
+        "critiques",
+        "alternatives",
+        "proscons",
+        "metaphors",
+        "objections"
+      ]
+    },
+    "terseFormat": {
+      "type": "boolean",
+      "description": "Use terse format (3-10 words per item). If false, allows longer descriptions.",
+      "default": true
+    },
+    "includeWildIdeas": {
+      "type": "boolean",
+      "description": "Include impractical/wild ideas in output. Core to the no-filter philosophy.",
+      "default": true
+    }
+  }
+}
