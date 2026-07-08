@@ -5,7 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2026-06-24
+## [1.2.0] - 2026-07-08
+
+### Added
+- Google Antigravity (AGY) support — YAML frontmatter in SKILL.md for AGY skill discovery
+- AGY-specific behavior section in SKILL.md: no-plan-phase rule, `--to-artifact` flag, artifact output
+- Comprehensive AGY installation docs in README: global, workspace, submodule, and git worktree methods
+- Worktree setup guide for syncing Claude Code + AGY from one repo (single source of truth)
+- Broader natural-language trigger patterns for AGY skill loader
+
+### Changed
+- README tagline updated to reflect dual-platform support (Claude Code + AGY)
+- SKILL.md version bumped to 1.2.0
+
+
 
 ### Added
 - Output format options: `--format json`, `--format checklist`, `--format csv`
