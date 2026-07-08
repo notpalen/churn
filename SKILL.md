@@ -1,3 +1,8 @@
+---
+name: churn
+description: High-volume rapid ideation tool. Zero quality filter. Generates 10-50 terse ideas instantly. Activate when user says /churn, wants bulk brainstorming, rapid naming, edge case generation, hypothesis dumping, or any divergent thinking task. Also activates for phrases like "give me a bunch of ideas", "brainstorm X", "list ideas for Y".
+---
+
 # Churn - Rapid Ideation Tool
 
 **Trigger**: `/churn <topic> [quantity] [mode]`
@@ -191,3 +196,17 @@ When invoked:
 - `--combine` flag: blend multiple topics
 - `--constraints` flag: force ideas within boundaries
 - `--format` flag: custom output formats (markdown table, JSON, CSV)
+
+## AGY-Specific Behavior
+
+*This section applies to Antigravity only.*
+
+**Critical rules for AGY:**
+1. **No planning phase** — churn never triggers planning mode, execute immediately
+2. **No preamble/conclusion** — start at `1.`, end at last item
+3. **Artifact output** — if `--to-artifact` or `--output artifact`: write to artifacts dir as UserFacing `.md`
+4. **File output** — if `--output <file>`: use `write_to_file` to workspace root, still show inline
+
+**Trigger patterns for AGY skill loader:**
+- Explicit: `/churn`
+- Natural: "give me a bunch of ideas", "brainstorm X", "list N ideas for Y", "dump ideas on X"
