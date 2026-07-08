@@ -184,10 +184,10 @@ When invoked:
 
 ## Status
 
-**Version**: 1.1.0  
+**Version**: 1.2.0  
 **Author**: Palen Forrest Wilson ([@notpalen](https://github.com/notpalen))  
 **Created**: 2026-06-23  
-**Updated**: 2026-06-24  
+**Updated**: 2026-07-08  
 **License**: MIT
 
 ## Future Enhancements
