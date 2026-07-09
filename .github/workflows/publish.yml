@@ -1,0 +1,46 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'  # only run when version changes
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write  # for npm provenance
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Check version not already published
+        id: version_check
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          NPM_VERSION=$(npm view churn-ideate version 2>/dev/null || echo "0.0.0")
+          echo "pkg_version=$PKG_VERSION" >> $GITHUB_OUTPUT
+          echo "npm_version=$NPM_VERSION" >> $GITHUB_OUTPUT
+          if [ "$PKG_VERSION" = "$NPM_VERSION" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Version $PKG_VERSION already on npm, skipping."
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "Publishing $PKG_VERSION (npm has $NPM_VERSION)"
+          fi
+
+      - name: Publish
+        if: steps.version_check.outputs.skip == 'false'
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
