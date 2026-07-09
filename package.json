@@ -1,7 +1,7 @@
 {
   "name": "churn-ideate",
-  "version": "1.1.0",
-  "description": "High-volume ideation tool for Claude Code - divergent thinking with zero quality filter",
+  "version": "1.2.0",
+  "description": "High-volume ideation skill for Claude Code and Google Antigravity - divergent thinking with zero quality filter",
   "keywords": [
     "ideation",
     "brainstorming",
@@ -11,31 +11,60 @@
     "claude-code",
     "claude-skill",
     "no-filter",
-    "quantity-over-quality"
+    "quantity-over-quality",
+    "llm",
+    "ai-skill",
+    "slash-command",
+    "antigravity",
+    "agy",
+    "ai-tool"
   ],
   "author": "Palen Forrest Wilson <https://github.com/notpalen>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/notpalen/churn.git"
+    "url": "git+https://github.com/notpalen/churn.git"
   },
   "bugs": {
     "url": "https://github.com/notpalen/churn/issues"
   },
   "homepage": "https://github.com/notpalen/churn#readme",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/notpalen"
+  },
   "files": [
+    "index.js",
     "SKILL.md",
     "README.md",
     "LICENSE",
     "CONTRIBUTING.md",
     "CHANGELOG.md",
     "CONFIG.md",
+    "SECURITY.md",
     "config.schema.json",
     "config.json.template",
+    "assets/",
     "examples/",
-    "benchmarks/"
+    "benchmarks/",
+    "scripts/"
   ],
+  "type": "commonjs",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "sideEffects": false,
   "engines": {
     "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0",
+    "check-versions": "node scripts/check-versions.js",
+    "prepublishOnly": "npm run check-versions"
   }
 }

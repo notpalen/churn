@@ -11,14 +11,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Google Antigravity (AGY) support — YAML frontmatter in SKILL.md for AGY skill discovery
 - AGY-specific behavior section in SKILL.md: no-plan-phase rule, `--to-artifact` flag, artifact output
 - Comprehensive AGY installation docs in README: global, workspace, submodule, and git worktree methods
-- Worktree setup guide for syncing Claude Code + AGY from one repo (single source of truth)
-- Broader natural-language trigger patterns for AGY skill loader
+- Logo image (`assets/churn.png`) in README header and npm package
+- CI badge in README
+- SECURITY.md — vulnerability disclosure policy
+- `.github/ISSUE_TEMPLATE/` — bug report and feature request templates
+- `.github/pull_request_template.md` — includes version consistency checklist
+- `.github/FUNDING.yml` — GitHub Sponsors link
+- `scripts/check-versions.js` — pre-publish guard that blocks stale version refs
+- `prepublishOnly` npm script — runs version guard before every `npm publish`
+- GitHub Actions `publish.yml` — auto-publishes to npm on version bump to main
+- `funding`, `publishConfig`, `sideEffects`, `type`, `exports` fields in package.json
+- Keywords: `llm`, `ai-skill`, `slash-command`, `antigravity`, `agy`, `ai-tool`
 
 ### Changed
 - README tagline updated to reflect dual-platform support (Claude Code + AGY)
-- SKILL.md version bumped to 1.2.0
+- SKILL.md version and updated date bumped
+- README version footer updated to 1.2.0
 
+[1.2.0]: https://github.com/notpalen/churn/releases/tag/v1.2.0
 
+## [1.1.0] - 2026-06-24
 
 ### Added
 - Output format options: `--format json`, `--format checklist`, `--format csv`

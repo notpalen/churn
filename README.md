@@ -1,10 +1,16 @@
 # Churn
 
+<p align="center">
+  <img src="assets/churn.png" alt="Churn — high-volume ideation tool" width="280" />
+</p>
+
 [![npm version](https://badge.fury.io/js/churn-ideate.svg)](https://www.npmjs.com/package/churn-ideate)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm downloads](https://img.shields.io/npm/dt/churn-ideate.svg)](https://www.npmjs.com/package/churn-ideate)
+[![CI](https://github.com/notpalen/churn/actions/workflows/publish.yml/badge.svg)](https://github.com/notpalen/churn/actions/workflows/publish.yml)
 
-High-volume ideation tool for Claude Code and Google Antigravity. Generates ideas with zero quality filter to break analysis paralysis.
+High-volume ideation skill for Claude Code and Google Antigravity. Generates ideas with zero quality filter to break analysis paralysis.
+
 
 ## Why Churn?
 
@@ -13,7 +19,7 @@ High-volume ideation tool for Claude Code and Google Antigravity. Generates idea
 - **Multiple output formats** - JSON, CSV, checklist for direct workflow integration
 - **63% token savings** - proven more efficient than iterative refinement ([benchmarks](benchmarks/))
 - **Academic foundation** - grounded in creativity research (Osborn, IDEO, Simonton, Csikszentmihalyi)
-- **Works in Claude Code and Antigravity (AGY)** - single skill, dual platform
+- **Production-ready** - configuration support, file export, task integration
 
 ## Problem
 
@@ -27,9 +33,9 @@ Separate divergent (generation) from convergent (filtering) thinking. `/churn` g
 
 ## Installation
 
-### Claude Code
+### Option 1: Manual Installation
 
-**Option 1: Manual**
+Copy the `churn` directory to `~/.claude/skills/`:
 
 ```bash
 git clone https://github.com/notpalen/churn.git
@@ -38,125 +44,21 @@ cp -r churn ~/.claude/skills/
 
 Restart Claude Code or reload skills.
 
-**Option 2: npm**
+### Option 2: npm Installation
 
 ```bash
 npm install -g churn-ideate
 cp -r "$(npm root -g)/churn-ideate" ~/.claude/skills/churn
 ```
 
+Or install locally and copy:
+
+```bash
+npm install churn-ideate
+cp -r node_modules/churn-ideate ~/.claude/skills/churn
+```
+
 Restart Claude Code or reload skills.
-
----
-
-### Google Antigravity (AGY)
-
-AGY discovers skills from two locations:
-
-| Scope | Path | When to use |
-|-------|------|-------------|
-| **Global** | `~/.gemini/config/skills/churn/` | Available in every AGY workspace |
-| **Workspace** | `.agents/skills/churn/` (repo root) | Project-specific, committed to git |
-
-#### Option A: Global install (available everywhere)
-
-```bash
-mkdir -p ~/.gemini/config/skills
-git clone https://github.com/notpalen/churn.git ~/.gemini/config/skills/churn
-```
-
-AGY auto-discovers it on next launch. No restart needed if AGY is already running — skills are hot-reloaded.
-
-#### Option B: Workspace install (committed to project)
-
-```bash
-mkdir -p .agents/skills
-git clone https://github.com/notpalen/churn.git .agents/skills/churn
-```
-
-Commit the skill to your repo so teammates get it automatically:
-
-```bash
-git add .agents/skills/churn
-git commit -m "Add churn ideation skill"
-```
-
-> **Note**: The cloned `.git` inside `.agents/skills/churn/` makes it a nested repo. Add it as a submodule instead if you want tracked updates:
->
-> ```bash
-> git submodule add https://github.com/notpalen/churn.git .agents/skills/churn
-> git commit -m "Add churn as submodule"
-> ```
-
-#### Option C: Git worktree (sync Claude Code + AGY from one repo)
-
-If you already have churn installed for Claude Code at `~/.claude/skills/churn`, link AGY to the same repo via a worktree instead of cloning twice. Changes in either location share the same git history.
-
-```bash
-# From inside the churn repo
-cd ~/.claude/skills/churn
-
-# Create an 'agy' branch and point it at your AGY workspace
-git worktree add /path/to/your/project/.agents/skills/churn -b agy main
-```
-
-Now `~/.claude/skills/churn` tracks `main` and `.agents/skills/churn` tracks `agy`. Merge between them freely:
-
-```bash
-# From the agy worktree: pull upstream changes from main
-cd /path/to/your/project/.agents/skills/churn
-git merge main
-
-# Push your agy branch
-git push origin agy
-```
-
-**Worktree list:**
-```
-~/.claude/skills/churn                          [main]  ← Claude Code
-/path/to/project/.agents/skills/churn          [agy]   ← Antigravity
-```
-
-#### Verify AGY install
-
-After installing, confirm AGY picked up the skill. In any AGY conversation, try:
-
-```
-/churn "test" 5
-```
-
-If it outputs 5 ideas with no preamble, it's working.
-
-You can also check skill discovery by asking AGY:
-
-```
-what skills do you have loaded?
-```
-
-#### Updating
-
-**Manual / global:**
-```bash
-cd ~/.gemini/config/skills/churn
-git pull origin main
-```
-
-**Submodule:**
-```bash
-git submodule update --remote .agents/skills/churn
-git commit -m "Update churn skill"
-```
-
-**Worktree:**
-```bash
-# Update main branch
-cd ~/.claude/skills/churn && git pull origin main
-
-# Merge into agy
-cd /path/to/project/.agents/skills/churn && git merge main && git push origin agy
-```
-
-
 
 ## Usage
 
@@ -418,4 +320,4 @@ Palen Forrest Wilson ([@notpalen](https://github.com/notpalen))
 
 ## Version
 
-1.1.0 (2026-06-24)
+1.2.0 (2026-07-08)
