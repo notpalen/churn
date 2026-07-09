@@ -7,6 +7,7 @@
 [![npm version](https://badge.fury.io/js/churn-ideate.svg)](https://www.npmjs.com/package/churn-ideate)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm downloads](https://img.shields.io/npm/dt/churn-ideate.svg)](https://www.npmjs.com/package/churn-ideate)
+[![CI](https://github.com/notpalen/churn/actions/workflows/publish.yml/badge.svg)](https://github.com/notpalen/churn/actions/workflows/publish.yml)
 
 High-volume ideation skill for Claude Code and Google Antigravity. Generates ideas with zero quality filter to break analysis paralysis.
 

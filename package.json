@@ -11,7 +11,13 @@
     "claude-code",
     "claude-skill",
     "no-filter",
-    "quantity-over-quality"
+    "quantity-over-quality",
+    "llm",
+    "ai-skill",
+    "slash-command",
+    "antigravity",
+    "agy",
+    "ai-tool"
   ],
   "author": "Palen Forrest Wilson <https://github.com/notpalen>",
   "license": "MIT",
@@ -23,6 +29,10 @@
     "url": "https://github.com/notpalen/churn/issues"
   },
   "homepage": "https://github.com/notpalen/churn#readme",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/notpalen"
+  },
   "files": [
     "index.js",
     "SKILL.md",
@@ -31,20 +41,30 @@
     "CONTRIBUTING.md",
     "CHANGELOG.md",
     "CONFIG.md",
+    "SECURITY.md",
     "config.schema.json",
     "config.json.template",
     "assets/",
     "examples/",
-    "benchmarks/"
+    "benchmarks/",
+    "scripts/"
   ],
+  "type": "commonjs",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "sideEffects": false,
   "engines": {
     "node": ">=16.0.0"
   },
-  "main": "index.js",
-  "directories": {
-    "example": "examples"
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests yet\" && exit 0",
+    "check-versions": "node scripts/check-versions.js",
+    "prepublishOnly": "npm run check-versions"
   }
 }
