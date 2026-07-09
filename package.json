@@ -33,6 +33,7 @@
     "CONFIG.md",
     "config.schema.json",
     "config.json.template",
+    "assets/",
     "examples/",
     "benchmarks/"
   ],
