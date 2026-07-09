@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'package.json'  # only run when version changes
+  workflow_dispatch:
 
 jobs:
   publish:
